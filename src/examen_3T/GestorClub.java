@@ -112,6 +112,7 @@ public class GestorClub {
       if (encontrado) {
         if (p.getNombre().equalsIgnoreCase(nombreDespedido)) {
           listaProfesionales.remove(p);
+          break;
         }
       } else {
         throw new ProfesionalNoEncontradoException(nombreDespedido + " no pertenece al club.");
