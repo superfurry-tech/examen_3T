@@ -97,20 +97,21 @@ public class GestorClub {
   }*/
 
   public static void despedirProfesional() throws ProfesionalNoEncontradoException {
+    boolean encontrado = false;
     Scanner sc = new Scanner(System.in);
     String nombreDespedido;
     System.out.print("Nombre a despedir: ");
     nombreDespedido = sc.nextLine();
-    ArrayList<String> nombresLista = new ArrayList<>();
     for (Profesional p : listaProfesionales) {
-      nombresLista.add(p.getNombre());
+      if (p.getNombre().equalsIgnoreCase(nombreDespedido)) {
+        encontrado = true;
+      }
     }
-    for (Profesional p : listaProfesionales) {
 
-      if (nombresLista.contains(nombreDespedido)) {
-        listaProfesionales.remove(p);
-        if (listaProfesionales.isEmpty()) {
-          break;
+    for (Profesional p : listaProfesionales) {
+      if (encontrado) {
+        if (p.getNombre().equalsIgnoreCase(nombreDespedido)) {
+          listaProfesionales.remove(p);
         }
       } else {
         throw new ProfesionalNoEncontradoException(nombreDespedido + " no pertenece al club.");
@@ -131,15 +132,11 @@ public class GestorClub {
       }
     }
     System.out.println(dineroTotal);
-
   }
-
 
   public static ArrayList<Profesional> getListaProfesionales() {
     return listaProfesionales;
   }
-
-
 }
 
 
