@@ -1,6 +1,6 @@
 package examen_3T;
 
-public abstract class Profesional implements Bonificable{
+public abstract class Profesional implements Bonificable {
   private String nombre;
   private double salarioBase;
 

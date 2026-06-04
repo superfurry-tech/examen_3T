@@ -1,6 +1,6 @@
 package examen_3T;
 
-public class Jugador extends Profesional{
+public class Jugador extends Profesional {
   private Posicion posicion;
 
   public Jugador(String nombre, double salarioBase, Posicion posicion) {

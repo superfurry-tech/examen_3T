@@ -13,28 +13,49 @@ public class MainClub {
     while (seguir) {
       mostrarMenu();
       elegirOpcion();
-      switch (opcion){
+      switch (opcion) {
+        case 5:
+          seguir = false;
+          break;
         case 1:
-          GestorClub.contratarJugador();
+          try {
+            GestorClub.contratarJugador();
+          } catch (PresupuestoExcedidoException e) {
+            System.out.println(e.getMessage());
+          }
+          break;
+        case 2:
+          try {
+            GestorClub.contratarTecnico();
+          } catch (PresupuestoExcedidoException e) {
+            System.out.println(e.getMessage());
+          }
+          break;
+        case 3:
+          try {
+            GestorClub.despedirProfesional();
+          } catch (ProfesionalNoEncontradoException e) {
+            System.out.println(e.getMessage());
+          }
+          break;
+        case 4:
+          GestorClub.verNominasTotales();
+          break;
+        default:
+          System.out.println("Opción no válida");
+          break;
       }
-
-      seguir = false;
     }
 
-
-
-
-
+    System.out.println("Adiós!");
   }
 
   public static void mostrarMenu() {
-    System.out.print("1. Contratar Jugador\n2. Contratar Cuerpo Técnico\n3. Despedir Profesional\n4. Ver nóminas Totales\nOpción: ");
+    System.out.print("1. Contratar Jugador\n2. Contratar Cuerpo Técnico\n3. Despedir Profesional\n4. Ver nóminas Totales\n5. Salir\nOpción: ");
   }
 
   public static void elegirOpcion() {
     opcion = sc.nextInt();
     sc.nextLine();
   }
-
-
 }
