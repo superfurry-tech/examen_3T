@@ -12,9 +12,18 @@ public class MainClub {
 
     while (seguir) {
       mostrarMenu();
+      elegirOpcion();
+      switch (opcion){
+        case 1:
+          GestorClub.contratarJugador();
+      }
 
       seguir = false;
     }
+
+
+
+
 
   }
 
@@ -24,5 +33,8 @@ public class MainClub {
 
   public static void elegirOpcion() {
     opcion = sc.nextInt();
+    sc.nextLine();
   }
+
+
 }
